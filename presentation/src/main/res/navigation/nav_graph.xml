@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myLessonsFragment">
+
+    <fragment
+        android:id="@+id/myLessonsFragment"
+        android:name="me.codeenzyme.ulesson.mylessons.views.fragments.MyLessonsFragment"
+        android:label="MyLessonsFragment" >
+        <action
+            android:id="@+id/action_myLessonsFragment_to_liveLessonsFragment"
+            app:destination="@id/liveLessonsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/liveLessonsFragment"
+        android:name="me.codeenzyme.ulesson.livelessons.views.fragments.LiveLessonsFragment"
+        android:label="LiveLessonsFragment" >
+        <action
+            android:id="@+id/action_liveLessonsFragment_to_myLessonsFragment"
+            app:destination="@id/myLessonsFragment" />
+    </fragment>
+</navigation>
