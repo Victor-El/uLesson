@@ -51,8 +51,10 @@
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/lessons_header"
+        app:layout_constraintBottom_toTopOf="@id/add_live_lessons">
 
         <LinearLayout
             android:visibility="gone"
@@ -69,7 +71,47 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                app:cardElevation="1dp"
+                app:cardCornerRadius="8dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="32dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_empty_calendar_icon"
+                        android:layout_margin="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/your_timetable_is_empty"
+                        android:gravity="center"
+                        android:textColor="@color/color_dark_grey"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_margin="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/click_remind_me_to_add_lessons_to_your_timetable"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
@@ -88,8 +130,8 @@
         android:id="@+id/add_live_lessons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Live Lessons"
-        android:layout_margin="16dp"
+        android:text="@string/add_live_lessons"
+        android:layout_margin="24dp"
         android:textColor="@color/color_white"
         android:background="@drawable/layer_list_button"
         app:layout_constraintBottom_toBottomOf="parent"/>

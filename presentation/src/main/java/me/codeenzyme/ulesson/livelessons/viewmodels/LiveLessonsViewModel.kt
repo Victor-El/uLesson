@@ -6,4 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LiveLessonsViewModel @Inject constructor(): ViewModel() {
+    val subjects = mutableListOf("ALL SUBJECTS",)
 }

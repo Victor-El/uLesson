@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">uLesson</string>
     <string name="my_lessons">My Lessons</string>
+    <string name="add_live_lessons">Add Live Lessons</string>
+    <string name="your_timetable_is_empty">Your timetable is empty</string>
+    <string name="click_remind_me_to_add_lessons_to_your_timetable">Click remind me to add lessons to your timetable</string>
 </resources>
