@@ -6,11 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import me.codeenzyme.domain.models.MyLessonsModel
+import me.codeenzyme.data.models.MyLessonsModel
 import me.codeenzyme.ulesson.R
 import me.codeenzyme.ulesson.databinding.ItemMyLessonsBinding
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
 
 class MyLessonsRecyclerViewAdapter: ListAdapter<MyLessonsModel.Data, MyLessonsRecyclerViewAdapter.MyLessonViewHolder>(MyLessonDiffUtilItemCallback) {
 

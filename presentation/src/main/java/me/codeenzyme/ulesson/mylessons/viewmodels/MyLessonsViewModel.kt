@@ -7,15 +7,17 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import me.codeenzyme.domain.models.MyLessonsModel
+import me.codeenzyme.data.models.MyLessonsModel
+import me.codeenzyme.domain.usecases.FetchMyLessonsUseCase
 import me.codeenzyme.domain.utils.DataUtil
 import javax.inject.Inject
 
 @HiltViewModel
 class MyLessonsViewModel @Inject constructor(
+    private val fetchMyLessonsUseCase: FetchMyLessonsUseCase
 ) : ViewModel() {
-    private val subjectsFirstVal ="ALL SUBJECTS"
-    val subjects = mutableListOf(subjectsFirstVal,)
+    private val subjectsFirstVal = "ALL SUBJECTS"
+    val subjects = mutableListOf(subjectsFirstVal)
 
     private val myLessonsLiveData = MutableLiveData<MyLessonsModel>()
 
@@ -35,5 +37,14 @@ class MyLessonsViewModel @Inject constructor(
             subjectsLiveData.value = newSubjects
         }
         return myLessonsLiveData
+    }
+
+    suspend fun fetchMyLessons(): LiveData<MyLessonsModel> {
+        viewModelScope.launch {
+           /* val newSubjects = mutableListOf<String>(subjectsFirstVal)
+            newSubjects.addAll(1, result!!.value?.data!!.map { it.subject.name })
+            subjectsLiveData.value = newSubjects*/
+        }
+        return fetchMyLessonsUseCase()
     }
 }

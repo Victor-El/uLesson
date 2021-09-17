@@ -1,8 +1,8 @@
 package me.codeenzyme.domain.utils
 
 import com.google.gson.Gson
-import me.codeenzyme.domain.models.MyLessonsModel
-import me.codeenzyme.domain.models.PromotedModel
+import me.codeenzyme.data.models.MyLessonsModel
+import me.codeenzyme.data.models.PromotedModel
 
 object DataUtil {
 

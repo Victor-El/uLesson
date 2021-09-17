@@ -1,4 +1,4 @@
-package me.codeenzyme.domain.models
+package me.codeenzyme.data.models
 
 
 import com.google.gson.annotations.SerializedName

@@ -6,8 +6,11 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import me.codeenzyme.ulesson.R
 import me.codeenzyme.ulesson.databinding.FragmentMyLessonsBinding
@@ -63,14 +66,32 @@ class MyLessonsFragment : Fragment(R.layout.fragment_my_lessons) {
             subjectsArrayAdapter.notifyDataSetChanged()
         }
 
-        viewModel.getMyLessons().observe(viewLifecycleOwner) {
+        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
+            viewModel.fetchMyLessons().observe(viewLifecycleOwner) {
 
-            viewBinding?.run {
-                loadingStateView.isVisible = false
-                dataStateView.isVisible = it.data.isNotEmpty()
-                emptyStateView.isVisible = it.data.isEmpty()
+                if (it.success) {
+                    viewBinding?.run {
+                        loadingStateView.isVisible = false
+                        dataStateView.isVisible = it.data.isNotEmpty()
+                        emptyStateView.isVisible = it.data.isEmpty()
+                    }
+                    myLessonsAdapter.submitList(it.data)
+                } else {
+                    viewBinding?.run {
+                        loadingStateView.isVisible = false
+                        dataStateView.isVisible = it.data.isNotEmpty()
+                        emptyStateView.isVisible = it.data.isEmpty()
+                    }
+                    myLessonsAdapter.submitList(it.data)
+
+                    val snackbar = Snackbar.make(viewBinding!!.root, "Network error", LENGTH_INDEFINITE)
+                    snackbar.setBackgroundTint(resources.getColor(R.color.color_orange_dark))
+                    snackbar.setAction("Cancel") {
+                        snackbar.dismiss()
+                    }
+                    snackbar.show()
+                }
             }
-            myLessonsAdapter.submitList(it.data)
         }
     }
 
