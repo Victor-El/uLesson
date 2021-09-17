@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/color_lighter_grey"/>
+    <item
+        android:drawable="@drawable/ic_live_lessons_background"
+        android:gravity="right|bottom"/>
+
+</layer-list>

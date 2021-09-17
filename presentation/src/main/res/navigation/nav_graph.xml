@@ -10,7 +10,11 @@
         android:label="MyLessonsFragment" >
         <action
             android:id="@+id/action_myLessonsFragment_to_liveLessonsFragment"
-            app:destination="@id/liveLessonsFragment" />
+            app:destination="@id/liveLessonsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"/>
     </fragment>
     <fragment
         android:id="@+id/liveLessonsFragment"
@@ -18,6 +22,10 @@
         android:label="LiveLessonsFragment" >
         <action
             android:id="@+id/action_liveLessonsFragment_to_myLessonsFragment"
-            app:destination="@id/myLessonsFragment" />
+            app:destination="@id/myLessonsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"/>
     </fragment>
 </navigation>
