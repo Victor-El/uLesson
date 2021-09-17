@@ -3,7 +3,23 @@ Task for Android developer role.
 
 [![Android CI](https://github.com/Victor-El/uLesson/actions/workflows/android.yml/badge.svg)](https://github.com/Victor-El/uLesson/actions/workflows/android.yml)
 
+## Architecture
 This application was built using MVVM design patter with clean architecture
+
+Presentation Layer -> Domain Layer -> Data Layer
+
+Each of these layer ware modularized to gain the advantages of a modularized application such as faster builds and seperation of concern so that each layer is not
+tightly coupled to another layer.
+
+The Data layer contained database entities DAOs and the database class alongside the repository and Retrofit web service.
+The caching of "My Lessons" is done in this layer in the repository class.
+
+The Domain layer contains business logic such as use-cases and domain models. Use-cases are an abstraction layer over the repository, they are meant to perform a 
+meaningful action a user can take and usually can integrate with multiple repository call in order to fufil a "Use case".
+
+The presentation layer is where all the UI logic goes into. Classes and objects such as the ViewModel, Adapters, Activities and Fragment live in this layer.
+
+This project was designed with clean architecture in mind, in order to make it easily possible for service to be easily swapable and overall codebase maintainable.
 
 <img src="https://miro.medium.com/max/1400/1*SjczBI6N688JKSiBiYoTcA.png" width="70%" vspace="10" hspace="10">
 
