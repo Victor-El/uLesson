@@ -7,5 +7,5 @@ import javax.inject.Inject
 @HiltViewModel
 class MyLessonsViewModel @Inject constructor(
 ) : ViewModel() {
-    val subjects = mutableListOf("ALL SUBJECTS")
+    val subjects = mutableListOf("ALL SUBJECTS",)
 }

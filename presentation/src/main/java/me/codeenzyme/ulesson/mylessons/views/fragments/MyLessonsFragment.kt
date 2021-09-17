@@ -2,6 +2,7 @@ package me.codeenzyme.ulesson.mylessons.views.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,9 +17,17 @@ class MyLessonsFragment: Fragment(R.layout.fragment_my_lessons) {
 
     private val viewModel by viewModels<MyLessonsViewModel>()
 
+    private lateinit var subjectsArrayAdapter: ArrayAdapter<String>
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentMyLessonsBinding.bind(view)
+        subjectsArrayAdapter = ArrayAdapter(requireContext(), R.layout.layout_spinner_item, viewModel.subjects)
+        subjectsArrayAdapter.setDropDownViewResource(R.layout.item_layout_spinner_dropdown)
+        viewBinding?.let {
+            it.subjectSpinner.adapter = subjectsArrayAdapter
+            it.addLiveLessons.clipToOutline = true
+        }
     }
 
     override fun onDestroyView() {

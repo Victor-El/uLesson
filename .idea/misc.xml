@@ -4,11 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/background_pattern.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/ic_round_arrow_drop_down_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/launch_background.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/layer_list_button.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/layer_list_layout_background.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/layer_list_spinner.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/drawable/shape_spinner.xml" value="0.109375" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/font/mulish.xml" value="0.1234375" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/layout/fragment_live_lessons.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/layout/fragment_my_lessons.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/layout/item_layout_spinner_dropdown.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/uLesson/presentation/src/main/res/layout/layout_spinner_item.xml" value="0.16944444444444445" />
       </map>
     </option>
   </component>

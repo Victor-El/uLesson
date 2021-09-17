@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:right="0dp"
+        android:left="0dp"
+        android:start="0dp"
+        android:end="0dp"
+        android:top="0dp"
+        android:bottom="0dp">
+
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_purple"/>
+            <corners android:radius="6dp"/>
+        </shape>
+
+    </item>
+    <item
+
+        android:gravity="center_vertical|left"
+        android:left="0dp"
+        android:drawable="@drawable/ic_left_button_illustration"
+        />
+    <item
+        android:gravity="bottom|right"
+        android:right="0dp"
+        android:drawable="@drawable/ic_bright_illustration"
+        />
+</layer-list>
