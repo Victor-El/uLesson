@@ -7,6 +7,9 @@ This application was built using MVVM design patter with clean architecture
 
 <img src="https://miro.medium.com/max/1400/1*SjczBI6N688JKSiBiYoTcA.png" width="70%" vspace="10" hspace="10">
 
+## Continuous Integration
+GitHub Actions is being used for continuous integration; build, run unit tests and generate artifact
+
 ## Features
 * Kotlin
 * Coroutines
