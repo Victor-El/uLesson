@@ -6,9 +6,12 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.jama.carouselview.enums.IndicatorAnimationType
+import com.jama.carouselview.enums.OffsetType
 import dagger.hilt.android.AndroidEntryPoint
 import me.codeenzyme.ulesson.R
 import me.codeenzyme.ulesson.databinding.FragmentLiveLessonsBinding
+import me.codeenzyme.ulesson.databinding.ItemLayoutPromotedBinding
 import me.codeenzyme.ulesson.livelessons.viewmodels.LiveLessonsViewModel
 
 @AndroidEntryPoint
@@ -29,6 +32,21 @@ class LiveLessonsFragment: Fragment(R.layout.fragment_live_lessons) {
 
         viewBinding?.let {
             it.subjectSpinner.adapter = subjectsArrayAdapter
+
+            it.carouselView.apply {
+                size = 5
+                resource = R.layout.item_layout_promoted
+                autoPlay = true
+                indicatorAnimationType = IndicatorAnimationType.THIN_WORM
+                carouselOffset = OffsetType.CENTER
+                setCarouselViewListener { view, position ->
+                    // Example here is setting up a full image carousel
+                    val binding = ItemLayoutPromotedBinding.bind(view)
+                    binding.image.setImageDrawable(resources.getDrawable(R.drawable.test_image))
+                }
+                // After you finish setting up, show the CarouselView
+                show()
+            }
 
             it.backButton.setOnClickListener {
                 findNavController().navigateUp()
