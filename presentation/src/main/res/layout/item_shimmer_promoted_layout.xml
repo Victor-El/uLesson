@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:shimmer_clip_to_children="true">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="210dp"
+                android:scaleType="fitXY"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:drawablePadding="8dp"
+                app:drawableStartCompat="@drawable/ic_clock_icon"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <View
+                android:id="@+id/dot_separator_1"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:background="@drawable/shape_dot"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/date_time"
+                app:layout_constraintTop_toTopOf="@id/date_time"
+                app:layout_constraintBottom_toBottomOf="@id/date_time"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/date_time"
+                app:layout_constraintTop_toTopOf="@id/date_time"
+                app:layout_constraintStart_toEndOf="@id/dot_separator_1" />
+
+            <TextView
+                android:id="@+id/topic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@id/date_time"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</com.facebook.shimmer.ShimmerFrameLayout>

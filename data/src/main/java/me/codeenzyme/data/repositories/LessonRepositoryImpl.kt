@@ -8,7 +8,10 @@ import kotlinx.coroutines.withContext
 import me.codeenzyme.data.database.AppDatabase
 import me.codeenzyme.data.dtos.toMyLessonModelData
 import me.codeenzyme.data.entities.Lesson
+import me.codeenzyme.data.models.LiveLessonsModel
 import me.codeenzyme.data.models.MyLessonsModel
+import me.codeenzyme.data.models.PromotedModel
+import me.codeenzyme.data.models.Resource
 import me.codeenzyme.data.remote.LessonsService
 import java.lang.Exception
 import javax.inject.Inject
@@ -36,11 +39,26 @@ class LessonRepositoryImpl @Inject constructor(
                 ) })
             }
         } catch (e: Exception) {
-            Log.d("ELEZUA", e.localizedMessage)
             success = false
         }
         return Transformations.map(appDatabase.lessonDao().observeAll()) {
             MyLessonsModel(success = success, data = it.map { value -> value.toMyLessonModelData() })
+        }
+    }
+
+    override suspend fun fetchLiveLessons(): Resource<LiveLessonsModel> {
+        return try {
+            Resource.Success(lessonsService.getLiveLessons())
+        } catch (e: Exception) {
+            Resource.Error()
+        }
+    }
+
+    override suspend fun fetchPromoted(): Resource<PromotedModel> {
+        return try {
+            Resource.Success(lessonsService.getPromotedLessons())
+        } catch (e: Exception) {
+            Resource.Error()
         }
     }
 }

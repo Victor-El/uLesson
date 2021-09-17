@@ -68,7 +68,7 @@ class MyLessonsFragment : Fragment(R.layout.fragment_my_lessons) {
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             viewModel.fetchMyLessons().observe(viewLifecycleOwner) {
-
+                viewModel.setSubjects(it)
                 if (it.success) {
                     viewBinding?.run {
                         loadingStateView.isVisible = false

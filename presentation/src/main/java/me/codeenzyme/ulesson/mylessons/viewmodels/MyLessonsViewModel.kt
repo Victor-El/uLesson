@@ -27,6 +27,12 @@ class MyLessonsViewModel @Inject constructor(
         return subjectsLiveData
     }
 
+    fun setSubjects(data: MyLessonsModel) {
+        val newSubjects = mutableListOf<String>(subjectsFirstVal)
+        newSubjects.addAll(1, data.data.map { it.subject.name })
+        subjectsLiveData.value = newSubjects
+    }
+
     fun getMyLessons(): LiveData<MyLessonsModel> {
         viewModelScope.launch {
             delay(1500)
@@ -40,11 +46,6 @@ class MyLessonsViewModel @Inject constructor(
     }
 
     suspend fun fetchMyLessons(): LiveData<MyLessonsModel> {
-        viewModelScope.launch {
-           /* val newSubjects = mutableListOf<String>(subjectsFirstVal)
-            newSubjects.addAll(1, result!!.value?.data!!.map { it.subject.name })
-            subjectsLiveData.value = newSubjects*/
-        }
         return fetchMyLessonsUseCase()
     }
 }
